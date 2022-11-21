@@ -1,0 +1,72 @@
+body{
+    background-color: rgb(182, 179, 179);
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+
+  }
+.edit-box{
+  background-image: url("images/template4.png");
+  background-size: 420px;
+  background-repeat: no-repeat;
+  color: aliceblue;
+  width: 480px;
+  height: 600px;
+  margin: 5% auto;
+  padding: 5px;
+  margin-bottom: 18px;
+  padding: 5px;
+}
+.input-group1{
+  top:280px;
+  margin-left: 55px;
+  position: absolute;
+  width: 280px;
+  text-align: center;
+  font-size: 35px;
+  font-family: cursive;
+}
+.input-group2{
+  top:390px;
+  margin-left: 90px;
+  position: absolute;
+  width: 230px;
+  text-align: center;
+  font-size: 25px;
+  font-family: cursive;
+}
+.input-group3{
+    top:470px;
+    margin-left: 85px;
+    position: absolute;
+    width: 260px;
+    text-align: center;
+    font-size: 17px;
+    font-family: cursive;
+  }
+.submit-btn{
+  margin-top: 1px;
+  width: 15%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: grid;
+  margin-left: 600px;
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+  color: white;
+}
+@media print{
+    /* Hide every other element */
+    body *{
+      visibility: hidden;
+    }
+  
+    /* Then displaying print container */
+    .print-container, .print-container *{
+      visibility: visible;
+    }
+  }

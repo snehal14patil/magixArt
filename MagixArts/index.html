@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MagixArt</title>
+
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body oncontextmenu="return false;">
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import { getDatabase ,set , ref, update} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut    } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBanySM8mxgjxM6MA9Vmg0Qs61-IK-Zi7Y",
+      authDomain: "fir-login-d8550.firebaseapp.com",
+      databaseURL: "https://fir-login-d8550-default-rtdb.firebaseio.com",
+      projectId: "fir-login-d8550",
+      storageBucket: "fir-login-d8550.appspot.com",
+      messagingSenderId: "287621122932",
+      appId: "1:287621122932:web:03fe5301b855d8d1473a21",
+      measurementId: "G-G986P9EX9G"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider(app);
+
+    
+      log_out.addEventListener('click',(e) => {
+          signOut(auth).then(() => {
+          // Sign-out successful.
+          alert("logout successful")
+          
+          window.location = 'form.html';
+          }).catch((error) => {
+          // An error happened.
+          });
+      });  
+    
+ 
+</script>
+
+<div class="topnav">
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo"><img src="images/logo.png.png" ></label>
+      <ul>
+        <li><a class="active" href="index.html"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="#About-us"><i class="far fa-question-circle"></i>About Us</a></li>
+        <li><a href="gallery.html"><i class="bx bxs-grid-alt"></i>Gallery</a></li>
+        <li><a href="form.html"><i class="bx bx-user"></i>sign-In</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class="bx bxl-c-plus-plus icon"></i>
+        <div class="logo_name">MagixArt</div>
+        <i class="bx bx-menu" id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+          <i class="bx bx-search" ></i>
+         <form action="gallery.html" method="get">
+         <input type="text" placeholder="Search..." >
+         <span class="tooltip">Search</span>
+         </form>
+      </li>
+      <li>
+        <a href="gallery.html">
+          <i class="bx bx-grid-alt"></i>
+          <span class="links_name">Gallery</span>
+        </a>
+         <span class="tooltip">Gallery</span>
+      </li>
+      <li>
+       <a href="#">
+         <i class="bx bx-user" ></i>
+         <span class="links_name">User</span>
+       </a>
+       <span class="tooltip">User</span>
+     </li>
+     
+     <li>
+       <a href="#">
+         <i class="bx bx-pie-chart-alt-2" ></i>
+         <span class="links_name">Follow Us</span>
+       </a>
+       <span class="tooltip">Follow Us</span>
+     </li>
+     <li>
+       <a href="https://www.instagram.com/accounts/login/?next=/magix_art03/">
+        <i class="bx bxl-instagram"></i>
+         <span class="links_name">Instagram</span>
+       </a>
+       <span class="tooltip">Instagram</span>
+     </li>
+     <li>
+       <a href="https://www.facebook.com/people/Magix-Art/100080982627946/">
+        <i class="bx bxl-facebook-circle"></i>
+         <span class="links_name">Facebook</span>
+       </a>
+       <span class="tooltip">Facebook</span>
+     </li>
+     <li>
+       <a href="https://twitter.com/magix_art03?t=OmTNtrIbZ3iDQhqkENa7KQ&s=08">
+        <i class="bx bxl-twitter"></i>
+         <span class="links_name">Twitter</span>
+       </a>
+       <span class="tooltip">Twitter</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <!--<img src="profile.jpg" alt="profileImg">-->
+           <div class="name_job">
+             <div class="name">MagixArt</div>
+             <div class="job">Web designing</div>
+           </div>
+         </div>
+         <i class="bx bx-log-out" id="log_out" ><button></button></i>
+     </li>
+    </ul>
+  </div>
+  <div class="main-info">
+    
+      <section>
+          <h1>MagixArt</h1><br>
+          <img src="images/main-image-removebg-preview.png"><br>
+          <h2 id="zingat">"Creativity is making what others see and thinking what no one
+            else ever dreamt !"</h2><br>
+          <p>Lets start your journey of becoming a creator and implement your creative skills</p>
+            
+          <br><a href="form.html" id="AB" class="submit-btn">Let's start</a><br>
+          
+          
+        </section>
+        
+    </div><br>
+      <div class="About-Us" id="About-us">
+          <section>
+           
+              <h1>About-Us</h1>
+              <img src="images/aboutus.jpg">
+              <br><h2 id="zingat">"Imagination is the beginning of creation. You imagine what you desire, 
+                you describe what you think, and at last you implement it into a reality !"</h2><br>
+
+              <p>MagixArt is an online editing tool for creating digital artworks,
+                 with a goal to encourage users throughout the world to design something 
+                 of their own and display it wherever they want. Inspite of having a complete 
+                 application, we provide the users with all the necessary editing tools right 
+                 on our website. The vibrant colors along with the templates play 
+                along well enough to keep the users busy and motivated for more ideologies.
+              </p>
+              
+          </section>
+              
+  </div>
+  <br><div class="RelativeQuestion">
+    <section>
+      
+        <h1>Relative Question</h1><br>
+        <h2>Why does the template look different while printing/saving it as a PDF?</h2>
+        <br><p>After clicking on save as PDF, a pop-up will appear. The first  option is a drop-down box called Destination. 
+          Here you have to select "Save as PDF". After this, there's another option called More Settings. 
+          Click on it and you'll be seeing at the Options at the end. Here you have to "Uncheck" for Headers and Footers, 
+          while "Check" for Background graphics.  
+        </p>
+      
+        <br>
+        <h2>Why can't I directly start editing after clicking on "Let's start" ?</h2>
+        <p>You need to login first before editing onto any templates and download your respective PDFs. This is essential for our website as it helps us in sending you our future updates as well as keep you in contact with us.  
+        </p>
+    </section>
+    </div>
+    
+      <footer>
+         <section>
+          <h1>Follow Us :<br>
+            <a href="#">
+              <i class="bx bxl-instagram"></i>
+             </a><br><br>
+             <a href="#">
+              <i class="bx bxl-facebook-circle"></i>
+             </a><br><br>
+             <a href="#">
+              <i class="bx bxl-twitter"></i>
+             </a><br>
+          <br></h1><br>
+          
+          <h2>Contact Us :</h2><br>
+          <h4>
+            gmail:-digi.create01@gmail.com<br><br>
+            Phone:-7784784757<br><br>
+            ProjectGuide:- prof pratik gurav<br><br>
+            Students:-
+            kaushal, 
+            sushant,
+            yash,
+            ved
+          </h4>
+          </section>
+      </footer>
+    
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+  
+    closeBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+  
+    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
+  
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+     if(sidebar.classList.contains("open")){
+       closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+     }else {
+       closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+     }
+    }
+
+
+    function popup(){
+      var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+    }
+    </script>	 
+
+    
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/info.css">
+    <link rel="stylesheet" href="css/index.css">
+    
+    
+
+    <title>hello</title>
+    <!-- Boxicons CDN Link -->
+    
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+<body>
+  
+  <div class="topnav">
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">DigitalArt</label>
+      <ul>
+        <li><a class="active" href="#"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="#"><i class="far fa-question-circle"></i>About Us</a></li>
+        <li><a href="#"><i class="bx bxs-grid-alt"></i>Gallery</a></li>
+        <li><a href="#"><i class="bx bx-user"></i>sign-In</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class="bx bxl-c-plus-plus icon"></i>
+        <div class="logo_name">CodingLab</div>
+        <i class="bx bx-menu" id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+          <i class="bx bx-search" ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-grid-alt"></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+         <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+       <a href="#">
+         <i class="bx bx-user" ></i>
+         <span class="links_name">User</span>
+       </a>
+       <span class="tooltip">User</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class="bx bx-chat" ></i>
+         <span class="links_name">Messages</span>
+       </a>
+       <span class="tooltip">Messages</span>
+     </li>
+     <li>
+       <a href="#">
+         <i class="bx bx-pie-chart-alt-2" ></i>
+         <span class="links_name">Follow Us</span>
+       </a>
+       <span class="tooltip">Follow Us</span>
+     </li>
+     <li>
+       <a href="#">
+        <i class="bx bxl-instagram"></i>
+         <span class="links_name">Instagram</span>
+       </a>
+       <span class="tooltip">Instagram</span>
+     </li>
+     <li>
+       <a href="#">
+        <i class="bx bxl-facebook-circle"></i>
+         <span class="links_name">Facebook</span>
+       </a>
+       <span class="tooltip">Facebook</span>
+     </li>
+     <li>
+       <a href="#">
+        <i class="bx bxl-twitter"></i>
+         <span class="links_name">Twitter</span>
+       </a>
+       <span class="tooltip">Twitter</span>
+     </li>
+     <li class="profile">
+         <div class="profile-details">
+           <!--<img src="profile.jpg" alt="profileImg">-->
+           <div class="name_job">
+             <div class="name">Digital Creation</div>
+             <div class="job">Web designing</div>
+           </div>
+         </div>
+         <i class="bx bx-log-out" id="log_out" ></i>
+     </li>
+    </ul>
+  </div>
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+  
+    closeBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+  
+    searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
+  
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+     if(sidebar.classList.contains("open")){
+       closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+     }else {
+       closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+     }
+    }
+    </script>
+  
+  <section>
+    
+  <div class="bannerText">
+    <h2>Think Creative</h2><br>
+    <h3>!!Creativity is seeing what other see and thinking what no one
+      else ever thought</h3>
+    <p>Lets Start Your journey of become a creater and implement your creative skills</p>
+    <a href="#">Read More</a>
+  </div>
+  
+  <img src="images/main-image-removebg-preview.png" class="bulb"><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+</section><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="main-info">
+    
+  <section>
+      <h1>Digital Creation</h1>
+      <img src="images/main-image-removebg-preview.png"><br>
+      <h2>!!Creativity is seeing what other see and thinking what no one
+        else ever thought!!</h2><br>
+      <p>Lets Start Your journey of become a creater and implement your creative skills</p>
+      <br><a href="#">Read More</a><br>
+      
+    </section>
+    
+</div>
+
+  
+
+</body>
+</html>

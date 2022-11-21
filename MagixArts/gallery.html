@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gallery</title>
+	<link rel="stylesheet" href="css/gallery.css">
+	<link rel="stylesheet" href="css/nav.css">
+	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="css/lightbox.min.css">
+	<script src="js/lightbox-plus-jquery.min.js"></script>
+	<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+
+<body oncontextmenu="return false;">
+	<script type="module">
+		// Import the functions you need from the SDKs you need
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+		import { getDatabase ,set , ref, update} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js";
+		import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-analytics.js";
+		import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut    } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+	
+		// TODO: Add SDKs for Firebase products that you want to use
+		// https://firebase.google.com/docs/web/setup#available-libraries
+	  
+		// Your web app's Firebase configuration
+		// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+		const firebaseConfig = {
+		  apiKey: "AIzaSyBanySM8mxgjxM6MA9Vmg0Qs61-IK-Zi7Y",
+		  authDomain: "fir-login-d8550.firebaseapp.com",
+		  databaseURL: "https://fir-login-d8550-default-rtdb.firebaseio.com",
+		  projectId: "fir-login-d8550",
+		  storageBucket: "fir-login-d8550.appspot.com",
+		  messagingSenderId: "287621122932",
+		  appId: "1:287621122932:web:03fe5301b855d8d1473a21",
+		  measurementId: "G-G986P9EX9G"
+		};
+	  
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+		const database = getDatabase(app);
+		const auth = getAuth();
+		const provider = new GoogleAuthProvider(app);
+	
+		
+		  log_out.addEventListener('click',(e) => {
+			  signOut(auth).then(() => {
+			  // Sign-out successful.
+			  alert("logout successful")
+			  
+			  window.location = 'form.html';
+			  }).catch((error) => {
+			  // An error happened.
+			  });
+		  });  
+		
+	 
+	</script>
+	
+
+	<div class="topnav">
+		<nav>
+		  <input type="checkbox" id="check">
+		  <label for="check" class="checkbtn">
+			  <i class="fas fa-bars"></i>
+		  </label>
+		  <label class="logo"><img src="images/logo.png.png" ></label>
+		  <ul>
+			<li><a  href="index.html"><i class="fas fa-home"></i>Home</a></li>
+			<li><a href="index.html#About-us"><i class="far fa-question-circle"></i>About Us</a></li>
+			<li><a class="active" href="gallery.html"><i class="bx bxs-grid-alt"></i>Gallery</a></li>
+			<li><a href="form.html"><i class="bx bx-user"></i>sign-In</a></li>
+			
+		  </ul>
+		</nav>
+	  </div>
+	  <div class="sidebar">
+		<div class="logo-details">
+			<i class="#"></i>
+			<div class="logo_name">SplashClub</div>
+			<i class="bx bx-menu" id="btn" ></i>
+		</div>
+		<ul class="nav-list">
+		  <li>
+			  <i class="bx bx-search" ></i>
+			  <form action="index.html" method="get">
+			 <input type="text" placeholder="Search...">
+			 <span class="tooltip">Search</span>
+		  </form>
+		  </li>
+		  <li>
+			<a href="index.html">
+			  <i class="bx bx-grid-alt"></i>
+			  <span class="links_name">HomePage</span>
+			</a>
+			 <span class="tooltip">Homepage</span>
+		  </li>
+		  <li>
+		   <a href="#">
+			 <i class="bx bx-user" ></i>
+			 <span class="links_name">User</span>
+		   </a>
+		   <span class="tooltip">User</span>
+		 </li>
+		 <li>
+		   <a href="#">
+			 <i class="bx bx-pie-chart-alt-2" ></i>
+			 <span class="links_name">Follow Us</span>
+		   </a>
+		   <span class="tooltip">Follow Us</span>
+		 </li>
+		 <hr>
+		 <li>
+		   <a href="https://www.instagram.com/accounts/login/?next=/magix_art03/">
+			<i class="bx bxl-instagram"></i>
+			 <span class="links_name">Instagram</span>
+		   </a>
+		   <span class="tooltip">Instagram</span>
+		 </li>
+		 <li>
+		   <a href="https://www.facebook.com/people/Magix-Art/100080982627946/">
+			<i class="bx bxl-facebook-circle"></i>
+			 <span class="links_name">Facebook</span>
+		   </a>
+		   <span class="tooltip">Facebook</span>
+		 </li>
+		 <li>
+		   <a href="https://twitter.com/magix_art03?t=OmTNtrIbZ3iDQhqkENa7KQ&s=08">
+			<i class="bx bxl-twitter"></i>
+			 <span class="links_name">Twitter</span>
+		   </a>
+		   <span class="tooltip">Twitter</span>
+		 </li>
+		 <li class="profile">
+			 <div class="profile-details">
+			   <!--<img src="profile.jpg" alt="profileImg">-->
+			   <div class="name_job">
+				 <div class="name">Digital Creation</div>
+				 <div class="job">Web designing</div>
+			   </div>
+			 </div>
+			 <i class="bx bx-log-out" id="log_out" ><button></button></i>
+		 </li>
+		</ul>
+	  </div>
+	  <script>
+	  let sidebar = document.querySelector(".sidebar");
+	  let closeBtn = document.querySelector("#btn");
+	  let searchBtn = document.querySelector(".bx-search");
+	
+	  closeBtn.addEventListener("click", ()=>{
+		sidebar.classList.toggle("open");
+		menuBtnChange();//calling the function(optional)
+	  });
+	
+	  searchBtn.addEventListener("click", ()=>{ // Sidebar open when you click on the search iocn
+		sidebar.classList.toggle("open");
+		menuBtnChange(); //calling the function(optional)
+	  });
+	
+	  // following are the code to change sidebar button(optional)
+	  function menuBtnChange() {
+	   if(sidebar.classList.contains("open")){
+		 closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+	   }else {
+		 closeBtn.classList.replace("bx-menu-alt-right","bx-menu");//replacing the iocns class
+	   }
+	  }
+	  </script>	
+
+<div class="container">
+    <div class="heading">
+      <h3>Digital<span>Gallery</span></h3>
+    </div>
+	
+    <div class="box">
+      
+      <div class="dream">
+        <a href="images/1G.jpg" data-lightbox="mygallery"><img src="images/1G.jpg"></a>
+        <a href="images/2G.jpg" data-lightbox="mygallery"><img src="images/2G.jpg"></a> 
+        <a href="images/3G.jpg" data-lightbox="mygallery"><img src="images/3G.jpg"></a>
+		<a href="images/4G.jpg" data-lightbox="mygallery"><img src="images/4G.jpg"></a>    
+      </div>
+
+      <div class="dream">
+	    <a href="images/5G.jpg" data-lightbox="mygallery"><img src="images/5G.jpg"></a>
+		<a href="images/6G.jpg" data-lightbox="mygallery"><img src="images/6G.jpg"></a> 
+		<a href="images/7G.jpg" data-lightbox="mygallery"><img src="images/7G.jpg"></a>
+		<a href="images/8G.jpg" data-lightbox="mygallery"><img src="images/8G.jpg"></a>      
+      </div>
+
+      <div class="dream">
+		<a href="images/9G.jpg" data-lightbox="mygallery"><img src="images/9G.jpg"></a>
+		<a href="images/10G.jpg" data-lightbox="mygallery"><img src="images/10G.jpg"></a> 
+		<a href="images/11G.jpg" data-lightbox="mygallery"><img src="images/11G.jpg"></a>
+		<a href="images/12G.jpg" data-lightbox="mygallery"><img src="images/12G.jpg"></a>      
+      </div>
+
+
+
+
+    </div>
+    
+
+
+
+
+
+  </div>
+</body>
+</html>

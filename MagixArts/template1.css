@@ -1,0 +1,91 @@
+body{
+  background-color: rgb(182, 179, 179);
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+
+  }
+.edit-box{
+  background-image: url("images/template2.png");
+  background-size: 420px;
+  background-repeat: no-repeat;
+  color: aliceblue;
+  width: 480px;
+  height: 550px;
+  margin: 5% auto;
+  padding: 5px;
+  margin-bottom: 18px;
+  padding: 5px;
+}
+.input-group1{
+  top:410px;
+  margin-left: 55px;
+  position: absolute;
+  width: 280px;
+  text-align: center;
+  font-size: 25px;
+  font-family: cursive;
+}
+.input-group2{
+  top:480px;
+  margin-left: 55px;
+  position: absolute;
+  width: 300px;
+  text-align: center;
+  font-size: 13px;
+  font-family: cursive;
+}
+.submit-btn{
+  margin-top: 1px;
+  width: 15%;
+  padding: 10px 30px;
+  cursor: pointer;
+  display: grid;
+  margin-left: 610px;
+  background: linear-gradient(to right, #ff105f, #ffad06);
+  border: 0;
+  outline: none;
+  border-radius: 30px;
+  color: white;
+}
+@media screen and (max-width: 400px) {
+  .container .edit-box{   
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 800px) {
+  .edit-box{   
+    width: 50%;
+    height: 80%;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .edit-box{   
+    width: 90%;
+    height: 80%;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 600px){
+  .input-group{
+  width: 70%;
+  }
+}
+
+
+@media print{
+  /* Hide every other element */
+  body *{
+    visibility: hidden;
+  }
+
+  /* Then displaying print container */
+  .print-container, .print-container *{
+    visibility: visible;
+  }
+}
